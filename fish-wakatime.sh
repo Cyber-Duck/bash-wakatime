@@ -14,7 +14,7 @@
 set -l project
 
 if echo (pwd) | grep -qEi "^/Users/$USER/Sites/"
-    set  project (echo (pwd) | sed 's#/Users/$USER/Sites/\([^/]*\).*#\1#')
+    set  project (echo (pwd) | sed "s#/Users/$USER/Sites/\\([^/]*\\).*#\\1#")
 else
     set  project "Terminal"
 end
