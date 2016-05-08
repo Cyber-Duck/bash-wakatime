@@ -1,19 +1,22 @@
-# wakatime for bash
+# wakatime for fish
 #
-# include this file in your "~/.bashrc" file with this command:
-#   . path/to/bash-wakatime.sh
-#
-# or this command:
-#   source path/to/bash-wakatime.sh
-#
-# But if you already have a PROMPT_COMMAND variable set,
-# just merge yout own pre_prompt_command with the following one.
-# And don't forget to create and configure your "~/.wakatime.cfg" file.
-#
+# Add this to the fish_prompt function in
+# ~/.config/fish/functions/fish_prompt.fish
+# (or if it doesn't exist, create it).
 
-# hook function to send wakatime a tick
-pre_prompt_command() {
-    (wakatime --write --plugin "bash-wakatime/0.0.1" --entity-type app --project Terminal --entity "$(echo $(fc -ln -0) | cut -d ' ' -f1)" 2>&1 > /dev/null &)
-}
 
-PROMPT_COMMAND=pre_prompt_command
+# We've also included an example of how
+# to determine the current project from the pwd.
+# It'll only work without alterations if
+# you happen to keep all your projects in
+# ~/Sites/ on a Mac, but it's easy to modify
+
+set -l project
+
+if echo (pwd) | grep -qEi "^/Users/$USER/Sites/"
+    set  project (echo (pwd) | sed 's#/Users/$USER/Sites/\([^/]*\).*#\1#')
+else
+    set  project "Terminal"
+end
+
+wakatime --write --plugin "fish-wakatime/0.0.1" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 > /dev/null&
