@@ -1,9 +1,9 @@
 Fish plugin for wakatime
 =======================
 
-Automatic time tracking for commands in FISH using [wakatime](http://wakatime.com/).
+Automatic time tracking for commands in the brilliant [fish](http://www.fishshell.com/) shell using [wakatime](http://wakatime.com/).
 
-Based on the [BASH plugin](https://github.com/API-PLUGIN-RESSOURCES/bash-wakatime).
+Based on the [BASH plugin](https://github.com/API-PLUGIN-RESSOURCES/bash-wakatime) but as well as conversion to fish syntax also attempts to determine the correct project from the file path.
 
 Installation
 ------------
