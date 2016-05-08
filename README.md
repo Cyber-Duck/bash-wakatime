@@ -12,7 +12,7 @@ Make sure you have configured wakatime API key in your [~/.wakatime.cfg](https:/
 
 1. `pip install wakatime` to install wakatime CLI, with 4.1 or higher. See more [here](https://github.com/wakatime/wakatime) for wakatime CLI.
 
-2. Copy and paste the contents of bash_wakatime into ~/.config/fish/functions/fish_prompt.fish
+2. Copy and paste the contents of fish-wakatime.sh into ~/.config/fish/functions/fish_prompt.fish
 
 3. Fish should pick this up instantly.
 
